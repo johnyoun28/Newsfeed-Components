@@ -36,21 +36,24 @@ function menuMaker(items) {
   const menu = document.createElement("div");
   const list = document.createElement("ul");
 
-  menu.classList.add(menu);
+  menu.classList.add("menu");
   menu.appendChild(list);
 
-  menuStuff.forEach((item) => {
-    const itemArr = document.createElement("li");
-    itemArr.textContent = item;
-    list.appendChild(itemArr);
+  menuItems.forEach((item) => {
+    const itemLi = document.createElement("li");
+    itemLi.textContent = item;
+    list.appendChild(itemLi);
   });
 
   const menuButton = document.querySelector(".menu-button");
+
   menuButton.addEventListener("click", () => {
     menu.classList.toggle("menu--open");
   });
+
   return menu;
 }
 
-const menuHead = document.querySelector("header");
-menuHead.appendChild(menuMaker(menuStuff));
+const menuHead = document.querySelector(".header");
+
+menuHead.appendChild(menuMaker(menuItems));
